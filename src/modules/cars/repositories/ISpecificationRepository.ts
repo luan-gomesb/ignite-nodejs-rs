@@ -1,4 +1,4 @@
-import Specification from "../model/Specification";
+import Specification from "../entities/Specification";
 
 /* 
   Interface de repositorio de categoria

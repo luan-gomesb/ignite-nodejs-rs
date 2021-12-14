@@ -1,7 +1,7 @@
 /* Repositorio ira implementar a interface de repositorio */
 
-import Category from "../../model/Category";
-import Specification from "../../model/Specification";
+import Category from "../../entities/Category";
+import Specification from "../../entities/Specification";
 import { ICreateSpecificationDTO, ISpecificationRepository } from "../ISpecificationRepository";
 
 class SpecificationRepository implements ISpecificationRepository {

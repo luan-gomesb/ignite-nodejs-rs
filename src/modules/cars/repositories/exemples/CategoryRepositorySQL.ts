@@ -1,7 +1,7 @@
 /* simularemos um repositorio que se conect com um banco SQL */
 /* Para utilizar como repositorio de categoria, vamos implementar a interface de repositório */
 
-import Category from "../../model/Category";
+import Category from "../../entities/Category";
 import { ICategoryRepository, ICreateCategoryDTO } from "../ICategoryRepository";
 
 

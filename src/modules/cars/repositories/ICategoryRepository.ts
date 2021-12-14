@@ -1,4 +1,4 @@
-import Category from "../model/Category";
+import Category from "../entities/Category";
 
 /* Interface de repositorio de categoria
 irá definir o contrato de repositório
