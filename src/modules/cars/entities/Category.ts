@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm'
 /* linka a nossa entidade categoria a tabela do banco de dados categories
 para o type ORM */
-@Entity("categories")
+@Entity('categories')
 class Category {
   /* define coluna como primaria para o typeorm */
   @PrimaryColumn()
