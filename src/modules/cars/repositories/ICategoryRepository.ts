@@ -4,9 +4,9 @@ import Category from "../entities/Category";
 irá definir o contrato de repositório
 */
 interface ICategoryRepository {
-  findByName(name: string): Category;
-  getAll(): Category[];
-  create({ name, description }: ICreateCategoryDTO): void;
+  findByName(name: string): Promise<Category>;
+  getAll(): Promise<Category[]>;
+  create({ name, description }: ICreateCategoryDTO): Promise<void>;
 }
 /* Interface para definir o contrato do objeto que iremos trafegar entre as camadas */
 interface ICreateCategoryDTO {
