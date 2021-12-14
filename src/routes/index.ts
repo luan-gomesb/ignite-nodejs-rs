@@ -4,7 +4,7 @@ import { categoriesRouter } from './categories.routes'
 import { specificationRouter } from './specifications.routes';
 const routers = Router();
 routers.get("/", (r, rr) => {
-  rr.send('Me separei porraaaa!');
+  rr.send('Me!');
 })
 //declarando todas de categoria criado como Routes() do express
 routers.use('/categories', categoriesRouter);
