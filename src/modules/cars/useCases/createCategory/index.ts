@@ -4,13 +4,16 @@ import { CreateCategoryController } from "./CreateCategoryController";
 
 //mudamos para singleston
 // const categoriesRepository = new CatetoryRepository();
-const categoriesRepository = CategoryRepository.getInstance();
+export default (): CreateCategoryController => {
+  const categoriesRepository = new CategoryRepository();
 
-const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
+  const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
 
-const createCategoryController = new CreateCategoryController(createCategoryUseCase);
+  const createCategoryController = new CreateCategoryController(createCategoryUseCase);
 
-export { createCategoryController, categoriesRepository };
+  return createCategoryController;
+}
+
 
 /* Para retirar a isolar ainda mais as responsabilidades
 Retiramos do router a função de definir quem era o repositorios e de buscar o use case que será usado no controller

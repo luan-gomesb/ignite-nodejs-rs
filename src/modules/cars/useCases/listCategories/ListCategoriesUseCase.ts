@@ -5,8 +5,8 @@ class ListCategoriesUseCase {
   constructor(private categoryRepository: ICategoryRepository) {
   }
 
-  execute(): Category[] {
-    return this.categoryRepository.getAll()
+  async execute(): Promise<Category[]> {
+    return await this.categoryRepository.getAll()
   }
 
 }

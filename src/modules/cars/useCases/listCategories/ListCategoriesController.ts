@@ -3,8 +3,8 @@ import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
 class ListCategoriesController {
   constructor(private listCategoriesUseCase: ListCategoriesUseCase) { }
-  handle(request: Request, response: Response) {
-    return response.json(this.listCategoriesUseCase.execute());
+  async handle(request: Request, response: Response) {
+    return response.json(await this.listCategoriesUseCase.execute());
   }
 }
 export { ListCategoriesController }

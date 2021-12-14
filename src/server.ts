@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerFile from './swagger.json';
-import { routers } from './routes';
 //importa banco de dados
 import "./database";
+import { routers } from './routes';
+
 
 const app = express();
 
