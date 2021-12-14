@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Documentação da minha API",
+    "description": "Minha api rest do node da rocketSeat",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Luan Gomes",
+      "email": "luan.gomesb@live.com"
+    }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Cria uma categoria",
+        "description": "Cria uma nova categoria de carro",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "exemple": {
+                  "name": "Nome da categoria",
+                  "description": "Descrição da categoria"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Categoria Criada"
+          },
+          "500": {
+            "description": "Categoria já existe"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "summary": "Listar categorias",
+        "description": "Lista com categorias cadastradas",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "Content": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  },
+                  "uuid": {
+                    "type": "string"
+                  },
+                  "created_at": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
