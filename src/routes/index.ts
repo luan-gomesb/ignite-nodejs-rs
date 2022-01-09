@@ -1,15 +1,17 @@
 
 import { Router } from 'express'
+import { accountsRouter } from './accounts.routes';
 import { categoriesRouter } from './categories.routes'
 import { specificationRouter } from './specifications.routes';
 const routers = Router();
 routers.get("/", (r, rr) => {
-  rr.send('Me!');
+  rr.send('Me! ola');
 })
 //declarando todas de categoria criado como Routes() do express
 routers.use('/categories', categoriesRouter);
 //rotas de specification
 routers.use('/specifications', specificationRouter);
+routers.use('/accounts', accountsRouter);
 
 export { routers };
 

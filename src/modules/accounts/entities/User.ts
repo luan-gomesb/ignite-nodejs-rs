@@ -10,7 +10,7 @@ class User {
   name: string;
 
   @Column()
-  usename: string;
+  username: string;
 
   @Column()
   email: string;
@@ -33,3 +33,5 @@ class User {
   }
 
 }
+
+export { User };
