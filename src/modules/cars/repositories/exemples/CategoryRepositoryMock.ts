@@ -2,7 +2,7 @@ import Category from "../../entities/Category"
 import { ICategoryRepository, ICreateCategoryDTO } from "../ICategoryRepository";
 
 /* REPOSITORIO DE CATEGORIA SINGLETON */
-class CategoryRepository implements ICategoryRepository {
+class CategoryRepositoryMock implements ICategoryRepository {
 
   // GUARDARA A INSTANCIA DA CLASSE
   private static INSTANCE: CategoryRepository;
