@@ -17,7 +17,7 @@ describe("CreateUserUseCase", () => {
 
     await createUserUseCase.execute(user);
     const usuarios = await userRepository.list();
-    console.log(usuarios);
+    // console.log(usuarios);
     expect(usuarios).toBeDefined();
 
   });
@@ -26,5 +26,6 @@ describe("CreateUserUseCase", () => {
     const usuarios = await userRepository.list();
     expect(usuarios).toHaveLength(1);
   });
+
 
 })
