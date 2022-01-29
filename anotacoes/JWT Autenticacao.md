@@ -58,3 +58,36 @@ Kj2xlUonaqP5R41lgawuKxmwR7HYRQiPc_OeZ3b0AiU
 yarn add jsonwebtoken
 yarn add @types/jsonwebtoken -D
 ```
+
+Vamos criar token JWT com o sign() da jsonwebtoken.
+- Primeiro o payload - um objeto dados n]ao criticos que queremos guardar no token e trocar entre front e backend
+- Segundo parametro é a palavra secreta, geralmente, definimos uma md5 e colocarmos
+14b49a0684f6447465087515882f77d8 - luan-gomes-ignite
+  - Usaremos essa chave para verificar a existencia e validade do nosso token
+- Terceiro é o nosso header. Além dos algorithm e type, podemos passar  outros dados referentes ao token como:
+  - subject: recebe o id do usuario que vamos autenticar
+  - expireIn: recebe o tempo de expiração
+    - Aqui vamos colocar 1d para 1 dia
+```ts
+  const jwtoken = sign(
+      {},
+      "14b49a0684f6447465087515882f77d8",
+      {
+        subject: user.id,
+        expiresIn: "1d"
+      }
+    )
+```
+
+
+## implementando no nosso projeto
+Criamos uma caso de uso inicial para autenticação do nosso usuario, que retorna um token JWT
+Com o caso de uso, criamos a rotapar autenticacao de usuario, que cria um token e retorna ser utilizados para acessar as rotas que necessitam de autenticação.
+Vamos criar um middleware, que verificara o token e permitirá ou  não o avanço para a rota desejada
+
+Agora que o usuario possui um token, que recebeu da nosssa aplicação no momento de autenticação, ele precisará passar esse token no header da chamada http.
+O nosso middleare irá naalise esse token, sem esse token, ele não poderá avançar para as rotas
+
+
+
+

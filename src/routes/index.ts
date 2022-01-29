@@ -1,6 +1,7 @@
 
 import { Router } from 'express'
 import { accountsRouter } from './accounts.routes';
+import { authenticateRoutes } from './authenticate.routes';
 import { categoriesRouter } from './categories.routes'
 import { specificationRouter } from './specifications.routes';
 const routers = Router();
@@ -12,6 +13,7 @@ routers.use('/categories', categoriesRouter);
 //rotas de specification
 routers.use('/specifications', specificationRouter);
 routers.use('/accounts', accountsRouter);
+routers.use(authenticateRoutes);
 
 export { routers };
 
