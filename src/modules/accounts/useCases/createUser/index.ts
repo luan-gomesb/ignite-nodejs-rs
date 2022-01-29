@@ -8,7 +8,7 @@ import { CreateUserUseCase } from "./CreateUserUseCase";
 /* Instanciar objetos necessarios para execucao do caso de uso */
 export default (): CreateUserController => {
   /* intancia camada de service */
-  const userRepository = new UsersRepository();
+  const userRepository = new UsersRepositoryTeste();
   /* intancia caso de usso e injeta repositorio que é a dependencia */
   /* camada de dominio */
   const createUserUseCase = new CreateUserUseCase(userRepository);
