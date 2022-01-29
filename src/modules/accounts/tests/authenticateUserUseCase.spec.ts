@@ -9,7 +9,7 @@ const user = { name: "Luan", username: "lng", password: "123456", email: "luango
 describe("authenticateUserUseCase ", () => {
 
   beforeAll(async () => {
-    userRepository = new UsersRepositoryTeste();
+    userRepository = UsersRepositoryTeste.getInstance();
     createUserUseCase = new CreateUserUseCase(userRepository);
     authenticateUserUseCase = new AuthenticateUserUseCase(userRepository);
     await createUserUseCase.execute(user);

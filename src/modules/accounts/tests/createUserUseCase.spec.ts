@@ -7,7 +7,7 @@ const user = { name: "Luan", username: "lng", password: "123456", email: "luango
 describe("CreateUserUseCase", () => {
 
   beforeAll(() => {
-    userRepository = new UsersRepositoryTeste();
+    userRepository = UsersRepositoryTeste.getInstance();
     createUserUseCase = new CreateUserUseCase(userRepository);
   });
   // it("List users before create expect contains 0 intens", () => {

@@ -8,6 +8,16 @@ import { IUsersRepository } from "../IUsersRepository";
 class UsersRepositoryTeste implements IUsersRepository {
   /* cria variavel do tipo repositorios de usuario */
   private repository: User[] = [];
+  static instance: UsersRepositoryTeste;
+  private constructor() { }
+  static getInstance() {
+    if (!this.instance) {
+      this.instance = new UsersRepositoryTeste();
+    }
+    return this.instance;
+  }
+
+
   async create({ name, username, email, password, driver_license }: ICreateUserDTO): Promise<void> {
     // const { name, usename, email, password, driver_license } = user;
     const newUser = { name, username, email, password, driver_license };
