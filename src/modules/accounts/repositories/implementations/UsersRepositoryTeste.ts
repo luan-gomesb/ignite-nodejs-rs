@@ -19,7 +19,9 @@ class UsersRepositoryTeste implements IUsersRepository {
   async list(): Promise<User[]> {
     return [...this.repository];
   }
-
+  async findByEmail(email: string): Promise<User> {
+    return this.repository.find((user) => user.email === email);
+  }
 
 }
 

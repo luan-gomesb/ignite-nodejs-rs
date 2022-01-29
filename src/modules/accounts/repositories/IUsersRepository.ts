@@ -4,5 +4,6 @@ import { User } from "../entities/User";
 interface IUsersRepository {
   create(user: ICreateUserDTO): Promise<void>;
   list(): Promise<User[]>;
+  findByEmail(email: string): Promise<User>;
 }
 export { IUsersRepository };
