@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 import swaggerFile from './swagger.json';
 //importa banco de dados
-import "./database";
+// import "./database";
 import { routers } from './routes';
 
 
