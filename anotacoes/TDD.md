@@ -56,3 +56,4 @@ Aqui, esperamos receber um erro "Category already exists!" pois estamos tentando
 # simulando Repositórios
 
 Como nosso objetivo é testar apenas as nossas regras de negocio no caso de uso, vamos simular o repositorio, assim não precisaremos acessar o banco de dados
+Esse repositorio guardaa os dados em memoria somente para executar o teste.
