@@ -9,7 +9,7 @@ class AuthenticateUserController {
       const token = await this.authenticateUserUseCase.execute({ email, password });
       return response.status(200).json(token);
     } catch (error) {
-      return response.status(401).json({ error: error.message });
+      return response.status(error.statusCode).json({ error: error.message });
     }
   }
 }

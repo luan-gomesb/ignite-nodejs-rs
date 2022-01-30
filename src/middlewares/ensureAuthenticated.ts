@@ -1,13 +1,22 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
+import AppErrors from "../errors/AppErrors";
 import { UsersRepositoryTeste } from "../modules/accounts/repositories/implementations/UsersRepositoryTeste";
 
 interface IToken {
   sub: string
 }
+
+function TokenMissingError() {
+  return new AppErrors("Token missing!", 401);
+}
+function UserNotFoundError() {
+  return new AppErrors("User Not Found", 401);
+}
+
 export const ensureAuthenticated = async (request: Request, response: Response, next: NextFunction) => {
   const auth = request.headers.authorization;
-  if (!auth) throw new Error("Token missing!");
+  if (!auth) throw TokenMissingError();
 
   const [b, token] = auth.split(" ");
   try {
@@ -15,10 +24,8 @@ export const ensureAuthenticated = async (request: Request, response: Response, 
     const userRepository = UsersRepositoryTeste.getInstance();
     const user = await userRepository.findById(id_user);
     if (!user) {
-      throw new Error("User Not Found");
+      throw UserNotFoundError();
     }
-
-
 
   } catch (error) {
     return response.json({ error: error.message });

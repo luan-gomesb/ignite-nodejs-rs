@@ -1,5 +1,6 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
+import AppErrors from "../../../../errors/AppErrors";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -12,6 +13,11 @@ interface IResponse {
   token: string,
   user: { name: string, email: string };
 }
+function UserUnauthorizedError() {
+  return new AppErrors("Email or Password Incorrect", 401);
+}
+
+
 class AuthenticateUserUseCase {
   constructor(private repository: IUsersRepository) { }
 
@@ -19,12 +25,12 @@ class AuthenticateUserUseCase {
     //verifica se temos usuario
     const user = await this.repository.findByEmail(email);
     if (!user) {
-      throw new Error("Email or Password Incorrect")
+      throw UserUnauthorizedError();
     }
     //verifica se senha esta correta
     const passwordMatch = await compare(password, user.password);
     if (!passwordMatch) {
-      throw new Error("Email or Password Incorrect")
+      throw UserUnauthorizedError();
     }
     const jwtoken = sign({}, "14b49a0684f6447465087515882f77d8", {
       subject: user.id,
