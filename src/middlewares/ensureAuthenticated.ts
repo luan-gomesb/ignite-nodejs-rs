@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
-import AppErrors from "../errors/AppErrors";
+import AppError from "../errors/AppErrors";
 import { UsersRepositoryTeste } from "../modules/accounts/repositories/implementations/UsersRepositoryTeste";
 
 interface IToken {
@@ -8,10 +8,10 @@ interface IToken {
 }
 
 function TokenMissingError() {
-  return new AppErrors("Token missing!", 401);
+  return new AppError("Token missing!", 401);
 }
 function UserNotFoundError() {
-  return new AppErrors("User Not Found", 401);
+  return new AppError("User Not Found", 401);
 }
 
 export const ensureAuthenticated = async (request: Request, response: Response, next: NextFunction) => {

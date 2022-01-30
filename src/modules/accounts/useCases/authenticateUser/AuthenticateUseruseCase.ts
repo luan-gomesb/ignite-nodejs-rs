@@ -1,6 +1,6 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import AppErrors from "../../../../errors/AppErrors";
+import AppError from "../../../../errors/AppErrors";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/IUsersRepository";
 
@@ -14,7 +14,7 @@ interface IResponse {
   user: { name: string, email: string };
 }
 function UserUnauthorizedError() {
-  return new AppErrors("Email or Password Incorrect", 401);
+  return new AppError("Email or Password Incorrect", 401);
 }
 
 
