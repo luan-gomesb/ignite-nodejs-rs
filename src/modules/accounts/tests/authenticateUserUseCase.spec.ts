@@ -18,7 +18,7 @@ describe("authenticateUserUseCase ", () => {
   });
   it("Expect to authenticate an user", async () => {
     const jwt = await authenticateUserUseCase.execute({ email: user.email, password: user.password });
-    console.log(jwt);
+    // console.log(jwt);
     expect(jwt).toHaveProperty('token');
   });
   it("Expect to not authenticate an user with incorrect Password", async () => {
@@ -26,7 +26,7 @@ describe("authenticateUserUseCase ", () => {
       const jwt = await authenticateUserUseCase.execute({ email: 'luangomesb@live.com', password: "1234569989" });
     }).rejects.toBeInstanceOf(AppError);
   });
-  it("Expect to not authenticate an user with incorrect Email", async () => {
+  test("Expect to not authenticate an user with incorrect Email", async () => {
     expect(async () => {
       const jwt = await authenticateUserUseCase.execute({ email: 'luan.gomesb@live.com', password: "123456" });
     }).rejects.toBeInstanceOf(AppError);
